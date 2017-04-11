@@ -1,6 +1,6 @@
 import queue,csv
 
-MaxTime = 100
+MaxTime = 300
 class Process: # Definining Process
     def __init__(self, pid, arrival, burst):
         self.pid = pid
@@ -45,11 +45,13 @@ class Simulator:
                     self.timer = self.timer + process.burst
                     bur = process.burst
                     process.burst = 0
-                    print '|ID:{:3d}| Start:{:3d}| End:{:3d}| Time Left:{:3d}'.format(process.pid, self.timer, self.timer + bur, process.burst)
+                    print '|ID:{:3d}| Start:{:3d}| End:{:3d}| Time Left:{:3d}'.format(process.pid, self.timer - bur, self.timer, process.burst)
                 else:
                     process.burst = process.burst - self.quantum
                     print '|ID:{:3d}| Start:{:3d}| End:{:3d}| Time Left:{:3d}'.format(process.pid, self.timer, self.timer + self.quantum, process.burst)
                     self.timer = self.timer + self.quantum
+            self.clock = self.clock + 1
+            self.Check(self.clock)
 
             if not process.burst <= 0:
                 self.ProcessQueue.put(process)
@@ -66,8 +68,9 @@ with open('process.csv') as csvfile:
             burst = int(row[2])
             Simulation.ProcessAdd(pid,arrival,burst,number)
 
-print('Adding the process to the process List\n---------------------------------------------')
+print('---------------------------------------------\nAdding the process to the process List\n---------------------------------------------')
 for process in Simulation.list:
         print(process)
 print('---------------------------------------------\n Simulation \n---------------------------------------------')
 Simulation.Scheduling()
+print('---------------------------------------------')
