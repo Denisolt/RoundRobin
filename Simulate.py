@@ -2,6 +2,7 @@ import queue,csv
 
 MaxTime = 300
 number = 0
+
 class Process: # Definining Process
     def __init__(self, pid, arrival, burst):
         self.pid = pid
@@ -12,7 +13,7 @@ class Process: # Definining Process
 
 
 class Simulator:
-    def __init__(self, tq=2):
+    def __init__(self, tq):
         self.quantum = tq
         self.clock = 0
         self.list = []

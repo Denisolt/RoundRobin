@@ -1,9 +1,16 @@
 from Simulate import Simulator
 import csv
+import sys
 
-Simulation = Simulator()
+
+path = sys.argv[1]
+tq = int(sys.argv[2])
+
+
+Simulation = Simulator(tq)
 number = 0
-with open('process.csv') as csvfile:
+
+with open(path) as csvfile:
     process = csv.reader(csvfile, delimiter=',', quotechar='|')
     next(process)
     for row in process:
