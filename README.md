@@ -1,8 +1,3 @@
----
-title: Operating Systems - Linux Lab
-author: Denisolt Shakhbulatov
----
-
 # Round Robin CPU Cheduling Algorithm
 
 Name: Denisolt Shakhbulatov - 1073562
