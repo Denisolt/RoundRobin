@@ -28,7 +28,10 @@ The input is a csv file that has a format like below and time quantum. Pic below
 
 Open terminal, run ``` cd RoundRobin ``` and run the command below. Make sure that you add the path to the csv file and the time quantum you would like to use
 
-``` $ python main.py process.csv 2                                 #tq = 5 and process.csv is the path  ```
+``` 
+#tq = 5 and process.csv is the path
+$ python main.py process.csv 5                                 
+```
 
 ## Output
 
