@@ -1,7 +1,7 @@
 import queue,csv
 
 MaxTime = 300
-number = 0
+ContextSwitch = 0
 
 class Process: # Definining Process
     def __init__(self, pid, arrival, burst):
@@ -20,24 +20,23 @@ class Simulator:
         self.ProcessQueue = queue.Queue()
         self.RunQueue = queue.Queue()
 
-    def ProcessAdd(self, pid, arrival, burst, number):
+    def ProcessAdd(self, pid, arrival, burst):
         process = Process(pid, arrival, burst)
         self.list.append(process)
 
     def Check(self, clock):
         for process in self.list:
-                if process.arrival == self.clock and number <= 3:
+                if process.arrival == self.clock:
                     self.ProcessQueue.put(process)
                     break
 
     def Scheduling(self):
         self.timer = 0
         for process in self.list:
-                if process.arrival == self.clock and number <= 3:
+                if process.arrival == self.clock:
                     self.ProcessQueue.put(process)
                     break
         while self.clock < MaxTime:
-            #self.Check(self.clock)
             self.clock = self.clock + 1
             self.Check(self.clock)
             
