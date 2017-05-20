@@ -1,4 +1,4 @@
-import queue,csv
+import Queue,csv
 
 MaxTime = 300
 ContextSwitch = 0
@@ -17,8 +17,8 @@ class Simulator:
         self.quantum = tq
         self.clock = 0
         self.list = []
-        self.ProcessQueue = queue.Queue()
-        self.RunQueue = queue.Queue()
+        self.ProcessQueue = Queue.Queue()
+        self.RunQueue = Queue.Queue()
 
     def ProcessAdd(self, pid, arrival, burst):
         process = Process(pid, arrival, burst)
